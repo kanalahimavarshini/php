@@ -1,3 +1,12 @@
 <?php
 echo "Hello, World!";
 ?>
+<?php
+$name = "Himavarshini";
+$age = 18;
+$cgpa = 8.5;
+$isStudent = true;
+
+echo $name;
+echo $age;
+?>
