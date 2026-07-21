@@ -66,3 +66,10 @@ while ($i <= 5) {
     $i++;
 }
 ?>
+<?php
+$numbers = [10, 20, 30, 40];
+
+foreach ($numbers as $number) {
+    echo $number . "\n";
+}
+?>
