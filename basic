@@ -10,3 +10,8 @@ $isStudent = true;
 echo $name;
 echo $age;
 ?>
+<?php
+define("COLLEGE", "DSU");
+
+echo COLLEGE;
+?>
