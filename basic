@@ -82,3 +82,10 @@ $student = [
 
 echo $student["name"];
 ?>
+<?php
+function greet($name) {
+    return "Hello, " . $name;
+}
+
+echo greet("Himavarshini");
+?>
