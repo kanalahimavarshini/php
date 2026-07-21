@@ -73,3 +73,12 @@ foreach ($numbers as $number) {
     echo $number . "\n";
 }
 ?>
+<?php
+$student = [
+    "name" => "Himavarshini",
+    "age" => 18,
+    "branch" => "CSE"
+];
+
+echo $student["name"];
+?>
