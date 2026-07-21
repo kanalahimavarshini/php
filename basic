@@ -15,3 +15,8 @@ define("COLLEGE", "DSU");
 
 echo COLLEGE;
 ?>
+<?php
+$name = readline("Enter your name: ");
+
+echo "Hello, " . $name;
+?>
