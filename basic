@@ -89,3 +89,10 @@ function greet($name) {
 
 echo greet("Himavarshini");
 ?>
+<?php
+function add(int $a, int $b): int {
+    return $a + $b;
+}
+
+echo add(10, 20);
+?>
