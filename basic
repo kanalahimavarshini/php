@@ -113,3 +113,10 @@ print_r($numbers);
 
 echo count($numbers);
 ?>
+<?php
+$multiply = function($a, $b) {
+    return $a * $b;
+};
+
+echo $multiply(5, 4);
+?>
