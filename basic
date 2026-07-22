@@ -203,3 +203,17 @@ class UPI implements Payment {
 $payment = new UPI();
 $payment->pay();
 ?>
+<?php
+trait Logger {
+    public function logMessage($message) {
+        echo $message;
+    }
+}
+
+class App {
+    use Logger;
+}
+
+$app = new App();
+$app->logMessage("Application started");
+?>
