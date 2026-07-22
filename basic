@@ -120,3 +120,8 @@ $multiply = function($a, $b) {
 
 echo $multiply(5, 4);
 ?>
+<?php
+$double = fn($x) => $x * 2;
+
+echo $double(5);
+?>
