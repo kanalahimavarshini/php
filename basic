@@ -172,3 +172,20 @@ $account->deposit(1000);
 
 echo $account->getBalance();
 ?>
+<?php
+class Animal {
+    function sound() {
+        echo "Animal sound";
+    }
+}
+
+class Dog extends Animal {
+    function bark() {
+        echo "Dog barks";
+    }
+}
+
+$dog = new Dog();
+$dog->sound();
+$dog->bark();
+?>
