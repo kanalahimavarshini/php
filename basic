@@ -125,3 +125,16 @@ $double = fn($x) => $x * 2;
 
 echo $double(5);
 ?>
+<?php
+class Student {
+    public $name;
+
+    function introduce() {
+        echo "My name is " . $this->name;
+    }
+}
+
+$student = new Student();
+$student->name = "Himavarshini";
+$student->introduce();
+?>
