@@ -232,3 +232,7 @@ file_put_contents(
     FILE_APPEND
 );
 ?>
+<form method="POST">
+    <input type="text" name="username">
+    <button type="submit">Submit</button>
+</form>
