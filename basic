@@ -220,3 +220,8 @@ $app->logMessage("Application started");
 <?php
 file_put_contents("data.txt", "Hello PHP");
 ?>
+<?php
+$content = file_get_contents("data.txt");
+
+echo $content;
+?>
