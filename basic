@@ -225,3 +225,10 @@ $content = file_get_contents("data.txt");
 
 echo $content;
 ?>
+<?php
+file_put_contents(
+    "data.txt",
+    "\nNew Line",
+    FILE_APPEND
+);
+?>
