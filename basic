@@ -96,3 +96,11 @@ function add(int $a, int $b): int {
 
 echo add(10, 20);
 ?>
+<?php
+$text = "Hello PHP";
+
+echo strlen($text);
+echo strtoupper($text);
+echo strtolower($text);
+echo str_replace("PHP", "World", $text);
+?>
