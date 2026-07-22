@@ -236,3 +236,10 @@ file_put_contents(
     <input type="text" name="username">
     <button type="submit">Submit</button>
 </form>
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST["username"];
+
+    echo "Welcome " . htmlspecialchars($username);
+}
+?>
