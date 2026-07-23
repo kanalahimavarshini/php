@@ -315,3 +315,10 @@ $stmt = $conn->prepare(
 $stmt->bind_param("i", $id);
 $stmt->execute();
 ?>
+<?php
+try {
+    throw new Exception("Something went wrong");
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
+?>
