@@ -294,3 +294,14 @@ while ($row = $result->fetch_assoc()) {
     echo $row["name"] . "<br>";
 }
 ?>
+<?php
+$id = 1;
+$name = "Updated Name";
+
+$stmt = $conn->prepare(
+    "UPDATE students SET name = ? WHERE id = ?"
+);
+
+$stmt->bind_param("si", $name, $id);
+$stmt->execute();
+?>
