@@ -287,3 +287,10 @@ $stmt->execute();
 
 echo "Data inserted";
 ?>
+<?php
+$result = $conn->query("SELECT * FROM students");
+
+while ($row = $result->fetch_assoc()) {
+    echo $row["name"] . "<br>";
+}
+?>
