@@ -248,3 +248,10 @@ $name = $_GET["name"] ?? "Guest";
 
 echo "Hello " . htmlspecialchars($name);
 ?>
+<?php
+session_start();
+
+$_SESSION["username"] = "Himavarshini";
+
+echo $_SESSION["username"];
+?>
