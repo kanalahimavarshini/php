@@ -322,3 +322,17 @@ try {
     echo $e->getMessage();
 }
 ?>
+<?php
+$data = [
+    "name" => "Himavarshini",
+    "branch" => "CSE"
+];
+
+$json = json_encode($data);
+
+echo $json;
+
+$array = json_decode($json, true);
+
+print_r($array);
+?>
