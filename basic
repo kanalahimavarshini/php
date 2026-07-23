@@ -274,3 +274,16 @@ if ($conn->connect_error) {
 
 echo "Connected successfully";
 ?>
+<?php
+$name = "Himavarshini";
+$email = "user@example.com";
+
+$stmt = $conn->prepare(
+    "INSERT INTO students (name, email) VALUES (?, ?)"
+);
+
+$stmt->bind_param("ss", $name, $email);
+$stmt->execute();
+
+echo "Data inserted";
+?>
