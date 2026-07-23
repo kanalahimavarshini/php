@@ -260,3 +260,17 @@ setcookie("user", "Himavarshini", time() + 3600);
 
 echo $_COOKIE["user"] ?? "Cookie not available";
 ?>
+<?php
+$conn = new mysqli(
+    "localhost",
+    "root",
+    "",
+    "college"
+);
+
+if ($conn->connect_error) {
+    die("Connection failed");
+}
+
+echo "Connected successfully";
+?>
