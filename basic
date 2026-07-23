@@ -255,3 +255,8 @@ $_SESSION["username"] = "Himavarshini";
 
 echo $_SESSION["username"];
 ?>
+<?php
+setcookie("user", "Himavarshini", time() + 3600);
+
+echo $_COOKIE["user"] ?? "Cookie not available";
+?>
