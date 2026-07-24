@@ -394,3 +394,15 @@ $name = $_GET["name"] ?? "Guest";
 echo "Hello, " . $name;
 
 ?>
+<?php
+
+$numbers = [1, 2, 3, 4, 5];
+
+$squares = array_map(
+    fn($x) => $x * $x,
+    $numbers
+);
+
+print_r($squares);
+
+?>
