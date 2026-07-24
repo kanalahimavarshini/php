@@ -445,3 +445,13 @@ if (preg_match(
 }
 
 ?>
+<?php
+
+echo date("Y-m-d") . "\n";
+echo date("H:i:s") . "\n";
+
+$futureDate = strtotime("+7 days");
+
+echo date("Y-m-d", $futureDate);
+
+?>
