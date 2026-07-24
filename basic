@@ -378,3 +378,12 @@ if (password_verify($password, $hashedPassword)) {
     echo "Password is correct";
 }
 ?>
+<?php
+
+$age = 20;
+
+$result = ($age >= 18) ? "Adult" : "Minor";
+
+echo $result;
+
+?>
