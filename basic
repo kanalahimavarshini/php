@@ -501,3 +501,21 @@ try {
 }
 
 ?>
+<?php
+
+$name = "Himavarshini";
+$email = "user@example.com";
+
+$sql = "INSERT INTO students (name, email)
+        VALUES (:name, :email)";
+
+$stmt = $pdo->prepare($sql);
+
+$stmt->execute([
+    ":name" => $name,
+    ":email" => $email
+]);
+
+echo "Data inserted successfully";
+
+?>
