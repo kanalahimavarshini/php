@@ -537,3 +537,24 @@ if (
 }
 
 ?>
+<?php
+
+$storedPassword = password_hash(
+    "mypassword",
+    PASSWORD_DEFAULT
+);
+
+$enteredPassword = "mypassword";
+
+if (
+    password_verify(
+        $enteredPassword,
+        $storedPassword
+    )
+) {
+    echo "Login Successful";
+} else {
+    echo "Invalid Password";
+}
+
+?>
