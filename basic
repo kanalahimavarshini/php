@@ -366,3 +366,15 @@ class User {
     }
 }
 ?>
+<?php
+$password = "mypassword";
+
+$hashedPassword = password_hash(
+    $password,
+    PASSWORD_DEFAULT
+);
+
+if (password_verify($password, $hashedPassword)) {
+    echo "Password is correct";
+}
+?>
