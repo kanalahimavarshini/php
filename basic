@@ -519,3 +519,21 @@ $stmt->execute([
 echo "Data inserted successfully";
 
 ?>
+<?php
+
+$correctUsername = "admin";
+$correctPassword = "12345";
+
+$username = "admin";
+$password = "12345";
+
+if (
+    $username === $correctUsername &&
+    $password === $correctPassword
+) {
+    echo "Login Successful";
+} else {
+    echo "Invalid Credentials";
+}
+
+?>
