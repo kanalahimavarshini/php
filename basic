@@ -357,3 +357,12 @@ curl_close($curl);
 
 echo $response;
 ?>
+<?php
+namespace App\Models;
+
+class User {
+    public function display() {
+        echo "User class";
+    }
+}
+?>
