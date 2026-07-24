@@ -387,3 +387,10 @@ $result = ($age >= 18) ? "Adult" : "Minor";
 echo $result;
 
 ?>
+<?php
+
+$name = $_GET["name"] ?? "Guest";
+
+echo "Hello, " . $name;
+
+?>
