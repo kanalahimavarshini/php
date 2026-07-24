@@ -418,3 +418,16 @@ $evenNumbers = array_filter(
 print_r($evenNumbers);
 
 ?>
+<?php
+
+$numbers = [1, 2, 3, 4, 5];
+
+$sum = array_reduce(
+    $numbers,
+    fn($carry, $item) => $carry + $item,
+    0
+);
+
+echo $sum;
+
+?>
