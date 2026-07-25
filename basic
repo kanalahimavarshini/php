@@ -685,3 +685,37 @@ foreach (numbers() as $number) {
 }
 
 ?>
+<?php
+
+class NumberCollection implements Iterator {
+    private array $numbers = [10, 20, 30];
+    private int $position = 0;
+
+    public function current(): mixed {
+        return $this->numbers[$this->position];
+    }
+
+    public function key(): mixed {
+        return $this->position;
+    }
+
+    public function next(): void {
+        $this->position++;
+    }
+
+    public function rewind(): void {
+        $this->position = 0;
+    }
+
+    public function valid(): bool {
+        return isset($this->numbers[$this->position]);
+    }
+}
+
+$collection = new NumberCollection();
+
+foreach ($collection as $number) {
+    echo $number . "<br>";
+}
+
+?>
