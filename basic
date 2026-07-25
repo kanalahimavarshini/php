@@ -631,3 +631,29 @@ $obj = new ChildClass();
 $obj->display();
 
 ?>
+<?php
+
+class Student {
+    public function __construct(
+        public string $name,
+        public int $age,
+        public string $branch
+    ) {
+    }
+
+    public function display(): void {
+        echo $this->name . "<br>";
+        echo $this->age . "<br>";
+        echo $this->branch;
+    }
+}
+
+$student = new Student(
+    "Himavarshini",
+    18,
+    "CSE"
+);
+
+$student->display();
+
+?>
