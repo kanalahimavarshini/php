@@ -719,3 +719,19 @@ foreach ($collection as $number) {
 }
 
 ?>
+<?php
+
+header("Content-Type: application/json");
+
+$response = [
+    "success" => true,
+    "data" => [
+        "id" => 1,
+        "name" => "Himavarshini",
+        "course" => "CSE"
+    ]
+];
+
+echo json_encode($response);
+
+?>
