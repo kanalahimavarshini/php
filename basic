@@ -615,3 +615,19 @@ $dog = new Dog();
 $dog->sound();
 
 ?>
+<?php
+
+class ParentClass {
+    final public function display(): void {
+        echo "This method cannot be overridden";
+    }
+}
+
+class ChildClass extends ParentClass {
+    // Cannot override display()
+}
+
+$obj = new ChildClass();
+$obj->display();
+
+?>
