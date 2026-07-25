@@ -657,3 +657,18 @@ $student = new Student(
 $student->display();
 
 ?>
+<?php
+
+enum Status {
+    case PENDING;
+    case APPROVED;
+    case REJECTED;
+}
+
+$status = Status::APPROVED;
+
+if ($status === Status::APPROVED) {
+    echo "Request approved";
+}
+
+?>
