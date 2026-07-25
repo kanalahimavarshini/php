@@ -783,3 +783,14 @@ class StudentModel {
 }
 
 ?>
+<?php
+
+require_once "Model.php";
+
+$model = new StudentModel();
+
+$student = $model->getStudent();
+
+require_once "View.php";
+
+?>
