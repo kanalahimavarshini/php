@@ -771,3 +771,15 @@ foreach ($students as $student) {
 }
 
 ?>
+<?php
+
+class StudentModel {
+    public function getStudent(): array {
+        return [
+            "name" => "Himavarshini",
+            "branch" => "CSE"
+        ];
+    }
+}
+
+?>
