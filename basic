@@ -748,3 +748,26 @@ http_response_code(201);
 echo json_encode($data);
 
 ?>
+<?php
+
+$pdo = new PDO(
+    "mysql:host=localhost;dbname=college",
+    "root",
+    ""
+);
+
+$sql = "SELECT * FROM students";
+
+$stmt = $pdo->query($sql);
+
+$students = $stmt->fetchAll(
+    PDO::FETCH_ASSOC
+);
+
+foreach ($students as $student) {
+    echo $student["id"] . " ";
+    echo $student["name"] . " ";
+    echo $student["email"] . "<br>";
+}
+
+?>
