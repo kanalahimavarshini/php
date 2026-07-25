@@ -794,3 +794,14 @@ $student = $model->getStudent();
 require_once "View.php";
 
 ?>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Student Details</h2>
+
+<p>Name: <?= $student["name"] ?></p>
+<p>Branch: <?= $student["branch"] ?></p>
+
+</body>
+</html>
