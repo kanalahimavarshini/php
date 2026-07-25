@@ -597,3 +597,21 @@ $circle = new Circle(5);
 echo $circle->area();
 
 ?>
+<?php
+
+class Animal {
+    public function sound(): void {
+        echo "Animal makes a sound";
+    }
+}
+
+class Dog extends Animal {
+    public function sound(): void {
+        echo "Dog barks";
+    }
+}
+
+$dog = new Dog();
+$dog->sound();
+
+?>
