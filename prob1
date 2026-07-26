@@ -214,3 +214,53 @@ authMiddleware();
 echo "Welcome to protected page";
 
 ?>
+<?php
+
+$header = [
+    "alg" => "HS256",
+    "typ" => "JWT"
+];
+
+$payload = [
+    "user_id" => 101,
+    "role" => "student",
+    "exp" => time() + 3600
+];
+
+$secretKey = "my-secret-key";
+
+function base64UrlEncode($data): string {
+    return rtrim(
+        strtr(
+            base64_encode($data),
+            "+/",
+            "-_"
+        ),
+        "="
+    );
+}
+
+$headerEncoded = base64UrlEncode(
+    json_encode($header)
+);
+
+$payloadEncoded = base64UrlEncode(
+    json_encode($payload)
+);
+
+$signature = hash_hmac(
+    "sha256",
+    $headerEncoded . "." . $payloadEncoded,
+    $secretKey,
+    true
+);
+
+$signatureEncoded = base64UrlEncode($signature);
+
+$jwt = $headerEncoded . "." .
+       $payloadEncoded . "." .
+       $signatureEncoded;
+
+echo $jwt;
+
+?>
