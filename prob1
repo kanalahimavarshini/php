@@ -7,3 +7,14 @@ class User {
         return "Himavarshini";
     }
 }
+<?php
+
+require_once "User.php";
+
+use App\Models\User;
+
+$user = new User();
+
+echo $user->getName();
+
+?>
