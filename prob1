@@ -110,3 +110,39 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }
 
 ?>
+<?php
+
+$page = $_GET["page"] ?? 1;
+
+$limit = 5;
+
+$offset = ($page - 1) * $limit;
+
+$sql = "SELECT * FROM students
+        LIMIT :limit OFFSET :offset";
+
+$stmt = $pdo->prepare($sql);
+
+$stmt->bindValue(
+    ":limit",
+    $limit,
+    PDO::PARAM_INT
+);
+
+$stmt->bindValue(
+    ":offset",
+    $offset,
+    PDO::PARAM_INT
+);
+
+$stmt->execute();
+
+$students = $stmt->fetchAll(
+    PDO::FETCH_ASSOC
+);
+
+foreach ($students as $student) {
+    echo $student["name"] . "<br>";
+}
+
+?>
