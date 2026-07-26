@@ -18,3 +18,16 @@ $user = new User();
 echo $user->getName();
 
 ?>
+<?php
+
+spl_autoload_register(function ($className) {
+    $file = $className . ".php";
+
+    if (file_exists($file)) {
+        require_once $file;
+    }
+});
+
+$user = new User();
+
+?>
