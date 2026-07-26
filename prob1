@@ -75,3 +75,38 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }
 
 ?>
+<?php
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+    $file = $_FILES["file"];
+
+    $allowedTypes = [
+        "image/jpeg",
+        "image/png"
+    ];
+
+    if (!in_array($file["type"], $allowedTypes)) {
+        die("Invalid file type");
+    }
+
+    if ($file["size"] > 2 * 1024 * 1024) {
+        die("File is too large");
+    }
+
+    $extension = pathinfo(
+        $file["name"],
+        PATHINFO_EXTENSION
+    );
+
+    $newName = uniqid() . "." . $extension;
+
+    move_uploaded_file(
+        $file["tmp_name"],
+        "uploads/" . $newName
+    );
+
+    echo "File uploaded successfully";
+}
+
+?>
