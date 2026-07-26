@@ -146,3 +146,25 @@ foreach ($students as $student) {
 }
 
 ?>
+<?php
+
+$search = $_GET["search"] ?? "";
+
+$sql = "SELECT * FROM students
+        WHERE name LIKE :search";
+
+$stmt = $pdo->prepare($sql);
+
+$stmt->execute([
+    ":search" => "%" . $search . "%"
+]);
+
+$students = $stmt->fetchAll(
+    PDO::FETCH_ASSOC
+);
+
+foreach ($students as $student) {
+    echo $student["name"] . "<br>";
+}
+
+?>
