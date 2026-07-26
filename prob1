@@ -58,3 +58,20 @@ $service = new UserService($database);
 echo $service->getUsers();
 
 ?>
+<?php
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+    $fileName = $_FILES["file"]["name"];
+    $tempName = $_FILES["file"]["tmp_name"];
+
+    $uploadPath = "uploads/" . $fileName;
+
+    if (move_uploaded_file($tempName, $uploadPath)) {
+        echo "File uploaded successfully";
+    } else {
+        echo "Upload failed";
+    }
+}
+
+?>
