@@ -168,3 +168,31 @@ foreach ($students as $student) {
 }
 
 ?>
+<?php
+
+$sort = $_GET["sort"] ?? "name";
+
+$allowedColumns = [
+    "name",
+    "email",
+    "id"
+];
+
+if (!in_array($sort, $allowedColumns)) {
+    $sort = "name";
+}
+
+$sql = "SELECT * FROM students
+        ORDER BY $sort ASC";
+
+$stmt = $pdo->query($sql);
+
+$students = $stmt->fetchAll(
+    PDO::FETCH_ASSOC
+);
+
+foreach ($students as $student) {
+    echo $student["name"] . "<br>";
+}
+
+?>
