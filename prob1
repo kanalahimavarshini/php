@@ -31,3 +31,30 @@ spl_autoload_register(function ($className) {
 $user = new User();
 
 ?>
+<?php
+
+class Database {
+    public function connect(): string {
+        return "Database connected";
+    }
+}
+
+class UserService {
+    private Database $database;
+
+    public function __construct(Database $database) {
+        $this->database = $database;
+    }
+
+    public function getUsers(): string {
+        return $this->database->connect();
+    }
+}
+
+$database = new Database();
+
+$service = new UserService($database);
+
+echo $service->getUsers();
+
+?>
