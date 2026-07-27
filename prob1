@@ -397,3 +397,12 @@ Student::create([
 ]);
 
 echo "Student Added";
+<?php
+
+use App\Models\Student;
+
+$students = Student::all();
+
+foreach ($students as $student) {
+    echo $student->name . "<br>";
+}
