@@ -406,3 +406,14 @@ $students = Student::all();
 foreach ($students as $student) {
     echo $student->name . "<br>";
 }
+<?php
+
+use App\Models\Student;
+
+$student = Student::find(1);
+
+$student->name = "Kiran";
+
+$student->save();
+
+echo "Updated";
