@@ -386,3 +386,14 @@ class Student extends Model
         "course"
     ];
 }
+<?php
+
+use App\Models\Student;
+
+Student::create([
+    "name" => "Rahul",
+    "email" => "rahul@example.com",
+    "course" => "CSE"
+]);
+
+echo "Student Added";
