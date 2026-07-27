@@ -441,3 +441,17 @@ public function home()
         "name" => "Himavarshini"
     ]);
 }
+<?php
+
+use Illuminate\Http\Request;
+
+public function store(Request $request)
+{
+    $request->validate([
+        "name" => "required|min:3",
+        "email" => "required|email",
+        "age" => "required|integer|min:18"
+    ]);
+
+    return "Validation Successful";
+}
