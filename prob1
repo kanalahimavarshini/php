@@ -358,3 +358,16 @@ use Illuminate\Support\Facades\Route;
 Route::get("/student/{id}", function ($id) {
     return "Student ID: " . $id;
 });
+php artisan make:controller StudentController
+<?php
+
+namespace App\Http\Controllers;
+
+class StudentController extends Controller
+{
+    public function index()
+    {
+        return "Student List";
+    }
+}
+Route::get("/students", [StudentController::class, "index"]);
