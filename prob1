@@ -351,3 +351,10 @@ Route::get("/", function () {
 Route::get("/about", function () {
     return "About Page";
 });
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+Route::get("/student/{id}", function ($id) {
+    return "Student ID: " . $id;
+});
