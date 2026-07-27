@@ -424,3 +424,20 @@ use App\Models\Student;
 Student::destroy(1);
 
 echo "Deleted";
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Laravel</title>
+</head>
+<body>
+
+<h1>Welcome {{ $name }}</h1>
+
+</body>
+</html>
+public function home()
+{
+    return view("home", [
+        "name" => "Himavarshini"
+    ]);
+}
