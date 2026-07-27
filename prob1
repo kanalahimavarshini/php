@@ -455,3 +455,18 @@ public function store(Request $request)
 
     return "Validation Successful";
 }
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+Route::middleware(["auth"])->group(function () {
+
+    Route::get("/dashboard", function () {
+        return "Dashboard";
+    });
+
+    Route::get("/profile", function () {
+        return "Profile";
+    });
+
+});
