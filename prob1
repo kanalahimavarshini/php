@@ -417,3 +417,10 @@ $student->name = "Kiran";
 $student->save();
 
 echo "Updated";
+<?php
+
+use App\Models\Student;
+
+Student::destroy(1);
+
+echo "Deleted";
