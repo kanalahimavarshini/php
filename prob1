@@ -371,3 +371,18 @@ class StudentController extends Controller
     }
 }
 Route::get("/students", [StudentController::class, "index"]);
+php artisan make:model Student
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Student extends Model
+{
+    protected $fillable = [
+        "name",
+        "email",
+        "course"
+    ];
+}
