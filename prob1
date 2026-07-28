@@ -612,3 +612,14 @@ class WelcomeNotification extends Notification
     }
 }
 $user->notify(new WelcomeNotification());
+composer require laravel/sanctum
+<?php
+
+$token = $user->createToken("api-token")->plainTextToken;
+
+return [
+    "token" => $token
+];
+Route::middleware("auth:sanctum")->get("/profile", function () {
+    return auth()->user();
+});
