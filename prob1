@@ -600,3 +600,15 @@ SendEmailJob::dispatch();
 php artisan make:event UserRegistered
 php artisan make:listener SendWelcomeEmail
 event(new UserRegistered($user));
+<?php
+
+use Illuminate\Notifications\Notification;
+
+class WelcomeNotification extends Notification
+{
+    public function via($notifiable)
+    {
+        return ["mail"];
+    }
+}
+$user->notify(new WelcomeNotification());
