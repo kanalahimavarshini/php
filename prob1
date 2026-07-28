@@ -563,3 +563,14 @@ $students = Cache::remember(
 );
 
 return $students;
+<?php
+
+use Illuminate\Support\Facades\Mail;
+
+Mail::raw(
+    "Welcome to Laravel",
+    function ($message) {
+        $message->to("user@example.com")
+                ->subject("Welcome");
+    }
+);
