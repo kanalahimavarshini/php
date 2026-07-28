@@ -496,3 +496,21 @@ class Profile extends Model
         return $this->belongsTo(User::class);
     }
 }
+<?php
+
+class Post extends Model
+{
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+}
+<?php
+
+class Comment extends Model
+{
+    public function post()
+    {
+        return $this->belongsTo(Post::class);
+    }
+}
