@@ -586,3 +586,14 @@ public function upload(Request $request)
 
     return $path;
 }
+php artisan make:job SendEmailJob
+<?php
+
+class SendEmailJob implements ShouldQueue
+{
+    public function handle()
+    {
+        echo "Email Sent";
+    }
+}
+SendEmailJob::dispatch();
