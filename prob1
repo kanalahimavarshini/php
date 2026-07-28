@@ -597,3 +597,6 @@ class SendEmailJob implements ShouldQueue
     }
 }
 SendEmailJob::dispatch();
+php artisan make:event UserRegistered
+php artisan make:listener SendWelcomeEmail
+event(new UserRegistered($user));
