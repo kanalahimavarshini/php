@@ -550,3 +550,16 @@ class StudentResource extends JsonResource
     }
 }
 return StudentResource::collection(Student::all());
+<?php
+
+use Illuminate\Support\Facades\Cache;
+
+$students = Cache::remember(
+    "students",
+    60,
+    function () {
+        return Student::all();
+    }
+);
+
+return $students;
