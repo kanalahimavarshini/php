@@ -574,3 +574,15 @@ Mail::raw(
                 ->subject("Welcome");
     }
 );
+<?php
+
+use Illuminate\Http\Request;
+
+public function upload(Request $request)
+{
+    $path = $request
+        ->file("image")
+        ->store("images");
+
+    return $path;
+}
