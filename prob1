@@ -514,3 +514,21 @@ class Comment extends Model
         return $this->belongsTo(Post::class);
     }
 }
+<?php
+
+class Student extends Model
+{
+    public function courses()
+    {
+        return $this->belongsToMany(Course::class);
+    }
+}
+<?php
+
+class Course extends Model
+{
+    public function students()
+    {
+        return $this->belongsToMany(Student::class);
+    }
+}
