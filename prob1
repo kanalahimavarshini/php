@@ -743,3 +743,20 @@ class Student {
 $s = new Student("Rahul",90);
 $s->display();
 ?>
+<?php
+class Animal{
+    function sound(){
+        echo "Animal Sound";
+    }
+}
+
+class Dog extends Animal{
+    function bark(){
+        echo "<br>Bark";
+    }
+}
+
+$d = new Dog();
+$d->sound();
+$d->bark();
+?>
