@@ -776,3 +776,12 @@ class ChildClass extends ParentClass{
 $obj = new ChildClass();
 $obj->show();
 ?>
+<?php
+$file = fopen("sample.txt","r");
+
+while(!feof($file)){
+    echo fgets($file)."<br>";
+}
+
+fclose($file);
+?>
