@@ -714,3 +714,14 @@ $result = array_unique($arr);
 
 print_r($result);
 ?>
+<?php
+$marks = [
+    "Ram"=>80,
+    "John"=>65,
+    "Sam"=>95
+];
+
+asort($marks);
+
+print_r($marks);
+?>
