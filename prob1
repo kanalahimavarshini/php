@@ -688,3 +688,8 @@ while ($temp > 0) {
 
 echo ($rev == $num) ? "Palindrome" : "Not Palindrome";
 ?>
+<?php
+$str = "Programming";
+$count = preg_match_all('/[aeiouAEIOU]/', $str);
+echo "Vowels: $count";
+?>
