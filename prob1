@@ -725,3 +725,21 @@ asort($marks);
 
 print_r($marks);
 ?>
+<?php
+class Student {
+    public $name;
+    public $marks;
+
+    function __construct($name,$marks){
+        $this->name = $name;
+        $this->marks = $marks;
+    }
+
+    function display(){
+        echo $this->name." - ".$this->marks;
+    }
+}
+
+$s = new Student("Rahul",90);
+$s->display();
+?>
