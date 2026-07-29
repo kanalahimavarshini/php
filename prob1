@@ -785,3 +785,12 @@ while(!feof($file)){
 
 fclose($file);
 ?>
+<?php
+$file = fopen("sample.txt","w");
+
+fwrite($file,"Welcome to PHP File Handling");
+
+fclose($file);
+
+echo "Data Written Successfully";
+?>
