@@ -760,3 +760,19 @@ $d = new Dog();
 $d->sound();
 $d->bark();
 ?>
+<?php
+class ParentClass{
+    function show(){
+        echo "Parent";
+    }
+}
+
+class ChildClass extends ParentClass{
+    function show(){
+        echo "Child";
+    }
+}
+
+$obj = new ChildClass();
+$obj->show();
+?>
