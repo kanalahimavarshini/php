@@ -707,3 +707,10 @@ $c = array_merge($a, $b);
 
 print_r($c);
 ?>
+<?php
+$arr = [1,2,2,3,4,4,5];
+
+$result = array_unique($arr);
+
+print_r($result);
+?>
