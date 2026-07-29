@@ -663,3 +663,16 @@ class StudentController extends Controller
         ]);
     }
 }
+<?php
+$num = 153;
+$temp = $num;
+$sum = 0;
+
+while ($temp > 0) {
+    $digit = $temp % 10;
+    $sum += pow($digit, 3);
+    $temp = (int)($temp / 10);
+}
+
+echo ($sum == $num) ? "Armstrong Number" : "Not Armstrong";
+?>
