@@ -693,3 +693,9 @@ $str = "Programming";
 $count = preg_match_all('/[aeiouAEIOU]/', $str);
 echo "Vowels: $count";
 ?>
+<?php
+$str = "PHP is awesome";
+$words = explode(" ", $str);
+$words = array_reverse($words);
+echo implode(" ", $words);
+?>
