@@ -193,3 +193,23 @@ function factorial(int $n): int
 echo factorial(5);
 
 ?>
+<?php
+
+function fibonacci(int $limit): Generator
+{
+    $a = 0;
+    $b = 1;
+
+    while ($a <= $limit) {
+
+        yield $a;
+
+        [$a, $b] = [$b, $a + $b];
+    }
+}
+
+foreach (fibonacci(100) as $number) {
+    echo $number . " ";
+}
+
+?>
