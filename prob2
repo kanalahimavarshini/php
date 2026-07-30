@@ -66,3 +66,14 @@ $animal = AnimalFactory::create("dog");
 echo $animal->sound();
 
 ?>
+<?php
+
+$file = fopen("students.csv", "r");
+
+while (($row = fgetcsv($file)) !== false) {
+    print_r($row);
+}
+
+fclose($file);
+
+?>
