@@ -77,3 +77,16 @@ while (($row = fgetcsv($file)) !== false) {
 fclose($file);
 
 ?>
+<?php
+
+$file = fopen("students.csv", "w");
+
+fputcsv($file, ["ID", "Name", "Course"]);
+fputcsv($file, [1, "Rahul", "CSE"]);
+fputcsv($file, [2, "Anita", "ECE"]);
+
+fclose($file);
+
+echo "CSV Created";
+
+?>
