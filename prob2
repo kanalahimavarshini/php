@@ -90,3 +90,18 @@ fclose($file);
 echo "CSV Created";
 
 ?>
+<?php
+
+$xml = simplexml_load_string(
+'
+<students>
+    <student>
+        <name>Rahul</name>
+    </student>
+</students>
+'
+);
+
+echo $xml->student->name;
+
+?>
