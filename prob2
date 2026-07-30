@@ -156,3 +156,26 @@ try {
 }
 
 ?>
+<?php
+
+function listFiles(string $dir): void
+{
+    foreach (scandir($dir) as $file) {
+
+        if ($file === "." || $file === "..") {
+            continue;
+        }
+
+        $path = $dir . DIRECTORY_SEPARATOR . $file;
+
+        if (is_dir($path)) {
+            listFiles($path);
+        } else {
+            echo $path . PHP_EOL;
+        }
+    }
+}
+
+listFiles(".");
+
+?>
