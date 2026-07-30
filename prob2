@@ -26,3 +26,43 @@ $db = Database::getInstance();
 echo $db->connect();
 
 ?>
+<?php
+
+interface Animal
+{
+    public function sound(): string;
+}
+
+class Dog implements Animal
+{
+    public function sound(): string
+    {
+        return "Bark";
+    }
+}
+
+class Cat implements Animal
+{
+    public function sound(): string
+    {
+        return "Meow";
+    }
+}
+
+class AnimalFactory
+{
+    public static function create(string $type): Animal
+    {
+        return match ($type) {
+            "dog" => new Dog(),
+            "cat" => new Cat(),
+            default => throw new Exception("Unknown animal")
+        };
+    }
+}
+
+$animal = AnimalFactory::create("dog");
+
+echo $animal->sound();
+
+?>
