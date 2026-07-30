@@ -116,3 +116,25 @@ $student->addChild("course", "CSE");
 echo $xml->asXML();
 
 ?>
+<?php
+
+$data = "Hello PHP";
+$key = "1234567890123456";
+
+$encrypted = openssl_encrypt(
+    $data,
+    "AES-128-ECB",
+    $key
+);
+
+echo "Encrypted: " . $encrypted . PHP_EOL;
+
+$decrypted = openssl_decrypt(
+    $encrypted,
+    "AES-128-ECB",
+    $key
+);
+
+echo "Decrypted: " . $decrypted;
+
+?>
