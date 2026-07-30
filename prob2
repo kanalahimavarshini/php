@@ -138,3 +138,21 @@ $decrypted = openssl_decrypt(
 echo "Decrypted: " . $decrypted;
 
 ?>
+<?php
+
+try {
+
+    throw new Exception("Something went wrong");
+
+} catch (Exception $e) {
+
+    error_log(
+        $e->getMessage(),
+        3,
+        "errors.log"
+    );
+
+    echo "Logged Successfully";
+}
+
+?>
