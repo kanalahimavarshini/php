@@ -105,3 +105,14 @@ $xml = simplexml_load_string(
 echo $xml->student->name;
 
 ?>
+<?php
+
+$xml = new SimpleXMLElement("<students/>");
+
+$student = $xml->addChild("student");
+$student->addChild("name", "Rahul");
+$student->addChild("course", "CSE");
+
+echo $xml->asXML();
+
+?>
