@@ -233,3 +233,10 @@ $otp = random_int(100000, 999999);
 echo "Your OTP is: " . $otp;
 
 ?>
+<?php
+
+$token = bin2hex(random_bytes(32));
+
+echo $token;
+
+?>
