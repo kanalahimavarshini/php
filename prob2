@@ -226,3 +226,10 @@ echo "Execution Time: "
     . " seconds";
 
 ?>
+<?php
+
+$otp = random_int(100000, 999999);
+
+echo "Your OTP is: " . $otp;
+
+?>
