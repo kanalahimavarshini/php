@@ -278,3 +278,17 @@ if ($zip->open("backup.zip", ZipArchive::CREATE) === TRUE) {
 }
 
 ?>
+<?php
+
+$zip = new ZipArchive();
+
+if ($zip->open("backup.zip") === TRUE) {
+
+    $zip->extractTo("backup");
+
+    $zip->close();
+
+    echo "Files Extracted";
+}
+
+?>
