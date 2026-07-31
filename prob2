@@ -292,3 +292,24 @@ if ($zip->open("backup.zip") === TRUE) {
 }
 
 ?>
+<?php
+
+$file = "report.pdf";
+
+if (file_exists($file)) {
+
+    header("Content-Type: application/pdf");
+
+    header(
+        "Content-Disposition: attachment; filename="
+        . basename($file)
+    );
+
+    readfile($file);
+
+    exit;
+}
+
+echo "File Not Found";
+
+?>
