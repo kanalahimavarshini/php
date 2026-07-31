@@ -262,3 +262,19 @@ if (filter_var($url, FILTER_VALIDATE_URL)) {
 }
 
 ?>
+<?php
+
+$zip = new ZipArchive();
+
+if ($zip->open("backup.zip", ZipArchive::CREATE) === TRUE) {
+
+    $zip->addFile("students.csv");
+
+    $zip->addFile("data.txt");
+
+    $zip->close();
+
+    echo "ZIP File Created";
+}
+
+?>
