@@ -394,3 +394,10 @@ logMessage("Application Started");
 echo "Log Written";
 
 ?>
+<?php
+
+putenv("APP_NAME=Student Portal");
+
+echo getenv("APP_NAME");
+
+?>
