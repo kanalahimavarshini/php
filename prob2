@@ -349,3 +349,20 @@ imagedestroy($newImage);
 echo "Image Resized";
 
 ?>
+<?php
+
+header("Content-Type: application/json");
+
+$data = [
+    "status" => "success",
+    "message" => "Data Loaded",
+    "students" => [
+        "Rahul",
+        "Anita",
+        "Kiran"
+    ]
+];
+
+echo json_encode($data);
+
+?>
