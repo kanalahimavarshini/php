@@ -240,3 +240,14 @@ $token = bin2hex(random_bytes(32));
 echo $token;
 
 ?>
+<?php
+
+$email = "student@example.com";
+
+if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    echo "Valid Email";
+} else {
+    echo "Invalid Email";
+}
+
+?>
