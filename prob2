@@ -499,3 +499,23 @@ if ($_SESSION["requests"] > $limit) {
 echo "Request #" . $_SESSION["requests"];
 
 ?>
+<?php
+
+header("Content-Type: application/json");
+
+$data = json_decode(file_get_contents("php://input"), true);
+
+$name = $data["name"];
+$email = $data["email"];
+$password = password_hash(
+    $data["password"],
+    PASSWORD_DEFAULT
+);
+
+echo json_encode([
+    "message" => "Registration Successful",
+    "name" => $name,
+    "email" => $email
+]);
+
+?>
