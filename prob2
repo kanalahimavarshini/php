@@ -453,3 +453,15 @@ echo json_encode([
 ]);
 
 ?>
+<?php
+
+header("Content-Type: application/json");
+
+$id = $_GET["id"] ?? 0;
+
+echo json_encode([
+    "message" => "Student Deleted",
+    "id" => $id
+]);
+
+?>
