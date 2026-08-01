@@ -555,3 +555,22 @@ $offset = ($page - 1) * $limit;
 echo "SELECT * FROM students LIMIT $limit OFFSET $offset";
 
 ?>
+<?php
+
+$students = [
+    "Rahul",
+    "Anita",
+    "Kiran",
+    "Ramesh"
+];
+
+$search = $_GET["q"] ?? "";
+
+$result = array_filter(
+    $students,
+    fn($student) => stripos($student, $search) !== false
+);
+
+echo json_encode(array_values($result));
+
+?>
