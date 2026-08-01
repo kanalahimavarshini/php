@@ -481,3 +481,21 @@ if (in_array($userRole, $allowedRoles)) {
 }
 
 ?>
+<?php
+
+session_start();
+
+$limit = 5;
+
+$_SESSION["requests"] = ($_SESSION["requests"] ?? 0) + 1;
+
+if ($_SESSION["requests"] > $limit) {
+
+    http_response_code(429);
+
+    die("Too Many Requests");
+}
+
+echo "Request #" . $_SESSION["requests"];
+
+?>
