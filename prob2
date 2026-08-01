@@ -427,3 +427,17 @@ $students = [
 echo json_encode($students);
 
 ?>
+<?php
+
+header("Content-Type: application/json");
+
+$data = json_decode(file_get_contents("php://input"), true);
+
+$response = [
+    "message" => "Student Added",
+    "student" => $data
+];
+
+echo json_encode($response);
+
+?>
