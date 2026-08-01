@@ -415,3 +415,15 @@ if ($_SERVER["REQUEST_METHOD"] === "OPTIONS") {
 echo "CORS Enabled";
 
 ?>
+<?php
+
+header("Content-Type: application/json");
+
+$students = [
+    ["id" => 1, "name" => "Rahul"],
+    ["id" => 2, "name" => "Anita"]
+];
+
+echo json_encode($students);
+
+?>
