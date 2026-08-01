@@ -544,3 +544,14 @@ if (password_verify($data["password"], $storedHash)) {
 }
 
 ?>
+<?php
+
+$page = $_GET["page"] ?? 1;
+
+$limit = 10;
+
+$offset = ($page - 1) * $limit;
+
+echo "SELECT * FROM students LIMIT $limit OFFSET $offset";
+
+?>
