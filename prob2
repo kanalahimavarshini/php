@@ -465,3 +465,19 @@ echo json_encode([
 ]);
 
 ?>
+<?php
+
+$userRole = "admin";
+
+$allowedRoles = [
+    "admin",
+    "manager"
+];
+
+if (in_array($userRole, $allowedRoles)) {
+    echo "Access Granted";
+} else {
+    echo "Access Denied";
+}
+
+?>
