@@ -649,3 +649,29 @@ class StudentService
 }
 
 ?>
+<?php
+
+class Container
+{
+    private array $services = [];
+
+    public function set(string $name, callable $service): void
+    {
+        $this->services[$name] = $service;
+    }
+
+    public function get(string $name)
+    {
+        return $this->services[$name]($this);
+    }
+}
+
+$container = new Container();
+
+$container->set("message", function () {
+    return "Hello PHP";
+});
+
+echo $container->get("message");
+
+?>
