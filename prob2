@@ -675,3 +675,20 @@ $container->set("message", function () {
 echo $container->get("message");
 
 ?>
+<?php
+
+use Psr\Log\AbstractLogger;
+
+class FileLogger extends AbstractLogger
+{
+    public function log($level, $message, array $context = []): void
+    {
+        file_put_contents(
+            "app.log",
+            strtoupper($level) . ": " . $message . PHP_EOL,
+            FILE_APPEND
+        );
+    }
+}
+
+?>
