@@ -714,3 +714,33 @@ $memcached->set("language", "PHP", 60);
 echo $memcached->get("language");
 
 ?>
+<?php
+
+require_once "vendor/autoload.php";
+
+use PhpAmqpLib\Connection\AMQPStreamConnection;
+
+$connection = new AMQPStreamConnection(
+    "localhost",
+    5672,
+    "guest",
+    "guest"
+);
+
+$channel = $connection->channel();
+
+$channel->queue_declare("tasks", false, false, false, false);
+
+$message = new \PhpAmqpLib\Message\AMQPMessage(
+    "Hello Queue"
+);
+
+$channel->basic_publish($message, "", "tasks");
+
+echo "Message Sent";
+
+$channel->close();
+
+$connection->close();
+
+?>
