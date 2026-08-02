@@ -703,3 +703,14 @@ $redis->set("name", "Rahul");
 echo $redis->get("name");
 
 ?>
+<?php
+
+$memcached = new Memcached();
+
+$memcached->addServer("127.0.0.1", 11211);
+
+$memcached->set("language", "PHP", 60);
+
+echo $memcached->get("language");
+
+?>
