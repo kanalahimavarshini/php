@@ -744,3 +744,39 @@ $channel->close();
 $connection->close();
 
 ?>
+<?php
+
+require_once "vendor/autoload.php";
+
+use PhpAmqpLib\Connection\AMQPStreamConnection;
+
+$connection = new AMQPStreamConnection(
+    "localhost",
+    5672,
+    "guest",
+    "guest"
+);
+
+$channel = $connection->channel();
+
+$channel->queue_declare("tasks", false, false, false, false);
+
+$callback = function ($msg) {
+    echo "Received: " . $msg->body;
+};
+
+$channel->basic_consume(
+    "tasks",
+    "",
+    false,
+    true,
+    false,
+    false,
+    $callback
+);
+
+while ($channel->is_consuming()) {
+    $channel->wait();
+}
+
+?>
