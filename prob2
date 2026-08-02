@@ -780,3 +780,29 @@ while ($channel->is_consuming()) {
 }
 
 ?>
+<?php
+
+use PHPUnit\Framework\TestCase;
+
+class Calculator
+{
+    public function add($a, $b)
+    {
+        return $a + $b;
+    }
+}
+
+class CalculatorTest extends TestCase
+{
+    public function testAdd()
+    {
+        $calculator = new Calculator();
+
+        $this->assertEquals(
+            10,
+            $calculator->add(5, 5)
+        );
+    }
+}
+
+?>
