@@ -600,3 +600,34 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }
 
 ?>
+<?php
+
+class StudentRepository
+{
+    private PDO $pdo;
+
+    public function __construct(PDO $pdo)
+    {
+        $this->pdo = $pdo;
+    }
+
+    public function getAll(): array
+    {
+        $stmt = $this->pdo->query("SELECT * FROM students");
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function find(int $id): ?array
+    {
+        $stmt = $this->pdo->prepare(
+            "SELECT * FROM students WHERE id = ?"
+        );
+
+        $stmt->execute([$id]);
+
+        return $stmt->fetch(PDO::FETCH_ASSOC) ?: null;
+    }
+}
+
+?>
