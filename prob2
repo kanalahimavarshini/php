@@ -834,3 +834,16 @@ jobs:
       - run: composer install
 
       - run: vendor/bin/phpunit
+      <?php
+
+header("Content-Type: application/json");
+
+echo json_encode([
+    "status" => "UP",
+    "time" => date("Y-m-d H:i:s"),
+    "php_version" => phpversion(),
+    "memory_usage" => memory_get_usage(),
+    "server" => $_SERVER["SERVER_SOFTWARE"] ?? "Unknown"
+]);
+
+?>
