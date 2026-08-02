@@ -631,3 +631,21 @@ class StudentRepository
 }
 
 ?>
+<?php
+
+class StudentService
+{
+    private StudentRepository $repository;
+
+    public function __construct(StudentRepository $repository)
+    {
+        $this->repository = $repository;
+    }
+
+    public function getStudents(): array
+    {
+        return $this->repository->getAll();
+    }
+}
+
+?>
