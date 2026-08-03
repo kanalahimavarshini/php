@@ -50,3 +50,18 @@ $qr = "https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl="
 echo "<img src='$qr'>";
 
 ?>
+<?php
+
+require "fpdf.php";
+
+$pdf = new FPDF();
+
+$pdf->AddPage();
+
+$pdf->SetFont("Arial", "B", 16);
+
+$pdf->Cell(40, 10, "Hello PHP");
+
+$pdf->Output();
+
+?>
