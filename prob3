@@ -89,3 +89,18 @@ $writer->save("students.xlsx");
 echo "Excel Created";
 
 ?>
+<?php
+
+require "vendor/autoload.php";
+
+use PhpOffice\PhpSpreadsheet\IOFactory;
+
+$spreadsheet = IOFactory::load("students.xlsx");
+
+$data = $spreadsheet
+        ->getActiveSheet()
+        ->toArray();
+
+print_r($data);
+
+?>
