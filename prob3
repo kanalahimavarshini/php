@@ -195,3 +195,38 @@ $amount->setCurrency("USD");
 echo "Payment Object Created";
 
 ?>
+<?php
+
+require "vendor/autoload.php";
+
+use Ratchet\MessageComponentInterface;
+use Ratchet\ConnectionInterface;
+
+class ChatServer implements MessageComponentInterface
+{
+    public function onOpen(ConnectionInterface $conn)
+    {
+        echo "Connected\n";
+    }
+
+    public function onMessage(
+        ConnectionInterface $from,
+        $msg
+    ) {
+        echo "Message: $msg\n";
+    }
+
+    public function onClose(ConnectionInterface $conn)
+    {
+        echo "Disconnected\n";
+    }
+
+    public function onError(
+        ConnectionInterface $conn,
+        \Exception $e
+    ) {
+        $conn->close();
+    }
+}
+
+?>
