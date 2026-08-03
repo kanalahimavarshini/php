@@ -1,0 +1,23 @@
+<?php
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+    foreach ($_FILES["files"]["tmp_name"] as $key => $tmpName) {
+
+        $name = basename($_FILES["files"]["name"][$key]);
+
+        move_uploaded_file(
+            $tmpName,
+            "uploads/" . $name
+        );
+    }
+
+    echo "All files uploaded successfully.";
+}
+
+?>
+
+<form method="POST" enctype="multipart/form-data">
+    <input type="file" name="files[]" multiple>
+    <button type="submit">Upload</button>
+</form>
