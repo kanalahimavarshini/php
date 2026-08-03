@@ -65,3 +65,27 @@ $pdf->Cell(40, 10, "Hello PHP");
 $pdf->Output();
 
 ?>
+<?php
+
+require "vendor/autoload.php";
+
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+
+$spreadsheet = new Spreadsheet();
+
+$sheet = $spreadsheet->getActiveSheet();
+
+$sheet->setCellValue("A1", "Name");
+$sheet->setCellValue("B1", "Course");
+
+$sheet->setCellValue("A2", "Rahul");
+$sheet->setCellValue("B2", "CSE");
+
+$writer = new Xlsx($spreadsheet);
+
+$writer->save("students.xlsx");
+
+echo "Excel Created";
+
+?>
