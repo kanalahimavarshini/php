@@ -158,3 +158,18 @@ $client->createAuthUrl() .
 "'>Login with Google</a>";
 
 ?>
+<?php
+
+require "vendor/autoload.php";
+
+\Stripe\Stripe::setApiKey("sk_test_key");
+
+$paymentIntent =
+\Stripe\PaymentIntent::create([
+    "amount" => 1000,
+    "currency" => "usd"
+]);
+
+echo $paymentIntent->client_secret;
+
+?>
