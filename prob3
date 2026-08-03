@@ -40,3 +40,13 @@ imagejpeg($image, "watermark.jpg");
 imagedestroy($image);
 
 ?>
+<?php
+
+$text = "https://example.com";
+
+$qr = "https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl="
+      . urlencode($text);
+
+echo "<img src='$qr'>";
+
+?>
