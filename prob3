@@ -137,3 +137,24 @@ $mail->send();
 echo "Email Sent";
 
 ?>
+<?php
+
+require "vendor/autoload.php";
+
+$client = new Google\Client();
+
+$client->setClientId("CLIENT_ID");
+
+$client->setClientSecret("CLIENT_SECRET");
+
+$client->setRedirectUri(
+    "http://localhost/callback.php"
+);
+
+$client->addScope("email");
+
+echo "<a href='" .
+$client->createAuthUrl() .
+"'>Login with Google</a>";
+
+?>
