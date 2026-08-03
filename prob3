@@ -230,3 +230,36 @@ class ChatServer implements MessageComponentInterface
 }
 
 ?>
+<?php
+
+session_start();
+
+$username = "admin";
+
+$password = password_hash(
+    "123456",
+    PASSWORD_DEFAULT
+);
+
+$inputUser = "admin";
+
+$inputPass = "123456";
+
+if (
+    $inputUser === $username &&
+    password_verify(
+        $inputPass,
+        $password
+    )
+) {
+
+    $_SESSION["user"] = $inputUser;
+
+    echo "Login Successful";
+
+} else {
+
+    echo "Invalid Credentials";
+}
+
+?>
