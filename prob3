@@ -21,3 +21,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <input type="file" name="files[]" multiple>
     <button type="submit">Upload</button>
 </form>
+<?php
+
+$image = imagecreatefromjpeg("image.jpg");
+$color = imagecolorallocate($image, 255, 255, 255);
+
+imagestring(
+    $image,
+    5,
+    20,
+    20,
+    "Copyright 2026",
+    $color
+);
+
+imagejpeg($image, "watermark.jpg");
+
+imagedestroy($image);
+
+?>
