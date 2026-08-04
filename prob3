@@ -365,3 +365,20 @@ if (rename("old.txt", "new.txt")) {
 }
 
 ?>
+<?php
+
+$file = "temp.txt";
+
+if (file_exists($file)) {
+
+    unlink($file);
+
+    echo "Deleted";
+
+} else {
+
+    echo "File Not Found";
+
+}
+
+?>
