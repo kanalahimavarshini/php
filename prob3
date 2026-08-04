@@ -263,3 +263,16 @@ if (
 }
 
 ?>
+<?php
+
+$password = "Strong@123";
+
+$pattern = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/";
+
+if (preg_match($pattern, $password)) {
+    echo "Strong Password";
+} else {
+    echo "Weak Password";
+}
+
+?>
