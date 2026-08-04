@@ -435,3 +435,32 @@ flatten($array, $result);
 print_r($result);
 
 ?>
+<?php
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+    $extension = pathinfo(
+        $_FILES["image"]["name"],
+        PATHINFO_EXTENSION
+    );
+
+    $filename = uniqid() . "." . $extension;
+
+    move_uploaded_file(
+        $_FILES["image"]["tmp_name"],
+        "uploads/" . $filename
+    );
+
+    echo "Uploaded Successfully";
+
+}
+
+?>
+
+<form method="POST" enctype="multipart/form-data">
+
+<input type="file" name="image">
+
+<button>Upload</button>
+
+</form>
