@@ -382,3 +382,32 @@ if (file_exists($file)) {
 }
 
 ?>
+<?php
+
+$array = [
+    10,
+    20,
+    [30, 40],
+    [50, [60]]
+];
+
+function recursiveSum($array)
+{
+    $sum = 0;
+
+    foreach ($array as $value) {
+
+        if (is_array($value)) {
+            $sum += recursiveSum($value);
+        } else {
+            $sum += $value;
+        }
+
+    }
+
+    return $sum;
+}
+
+echo recursiveSum($array);
+
+?>
