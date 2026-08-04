@@ -352,3 +352,16 @@ if (copy($source, $destination)) {
 }
 
 ?>
+<?php
+
+if (rename("old.txt", "new.txt")) {
+
+    echo "Renamed Successfully";
+
+} else {
+
+    echo "Rename Failed";
+
+}
+
+?>
