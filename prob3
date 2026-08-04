@@ -335,3 +335,20 @@ foreach ($files as $file) {
 }
 
 ?>
+<?php
+
+$source = "students.txt";
+
+$destination = "backup.txt";
+
+if (copy($source, $destination)) {
+
+    echo "File Copied";
+
+} else {
+
+    echo "Copy Failed";
+
+}
+
+?>
