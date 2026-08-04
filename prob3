@@ -305,3 +305,20 @@ if (file_exists($file)) {
 }
 
 ?>
+<?php
+
+$file = "students.txt";
+
+if (file_exists($file)) {
+
+    echo "Size: " . filesize($file) . " bytes<br>";
+
+    echo "Modified: " .
+         date(
+             "Y-m-d H:i:s",
+             filemtime($file)
+         );
+
+}
+
+?>
