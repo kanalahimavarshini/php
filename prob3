@@ -464,3 +464,24 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <button>Upload</button>
 
 </form>
+<?php
+
+header("Content-Type: text/csv");
+header("Content-Disposition: attachment; filename=students.csv");
+
+$output = fopen("php://output", "w");
+
+fputcsv($output, ["ID", "Name", "Email"]);
+
+$students = [
+    [1, "Rahul", "rahul@example.com"],
+    [2, "Anita", "anita@example.com"]
+];
+
+foreach ($students as $student) {
+    fputcsv($output, $student);
+}
+
+fclose($output);
+
+?>
