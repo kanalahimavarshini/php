@@ -411,3 +411,27 @@ function recursiveSum($array)
 echo recursiveSum($array);
 
 ?>
+<?php
+
+$array = [1, [2, 3], [4, [5, 6]]];
+
+$result = [];
+
+function flatten($array, &$result)
+{
+    foreach ($array as $item) {
+
+        if (is_array($item)) {
+            flatten($item, $result);
+        } else {
+            $result[] = $item;
+        }
+
+    }
+}
+
+flatten($array, $result);
+
+print_r($result);
+
+?>
