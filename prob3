@@ -294,3 +294,14 @@ function generateUUID(): string
 echo generateUUID();
 
 ?>
+<?php
+
+$file = "students.txt";
+
+if (file_exists($file)) {
+    echo "File Exists";
+} else {
+    echo "File Not Found";
+}
+
+?>
