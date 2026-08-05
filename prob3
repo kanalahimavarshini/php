@@ -529,3 +529,27 @@ echo htmlspecialchars(
 );
 
 ?>
+<?php
+
+$pdo = new PDO(
+    "mysql:host=localhost;dbname=college",
+    "root",
+    ""
+);
+
+$name = $_GET["name"];
+
+$stmt = $pdo->prepare(
+    "SELECT * FROM students
+     WHERE name = :name"
+);
+
+$stmt->execute([
+    ":name" => $name
+]);
+
+print_r(
+    $stmt->fetchAll(PDO::FETCH_ASSOC)
+);
+
+?>
