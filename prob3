@@ -661,3 +661,19 @@ echo json_encode(
 );
 
 ?>
+<?php
+
+$email = "user@example.com";
+
+$token = bin2hex(
+    random_bytes(32)
+);
+
+$link = sprintf(
+    "https://example.com/reset.php?token=%s",
+    $token
+);
+
+echo $link;
+
+?>
