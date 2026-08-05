@@ -581,3 +581,31 @@ $stmt->execute([$id]);
 echo "Soft Deleted";
 
 ?>
+<?php
+
+function auditLog(
+    string $user,
+    string $action
+): void {
+
+    $log = sprintf(
+        "[%s] %s : %s%s",
+        date("Y-m-d H:i:s"),
+        $user,
+        $action,
+        PHP_EOL
+    );
+
+    file_put_contents(
+        "audit.log",
+        $log,
+        FILE_APPEND
+    );
+}
+
+auditLog(
+    "admin",
+    "Deleted Student #5"
+);
+
+?>
