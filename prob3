@@ -690,3 +690,26 @@ echo "https://example.com/verify.php?"
    . "id=$userId&token=$token";
 
 ?>
+<?php
+
+$lang = "en";
+
+$messages = [
+
+    "en" => [
+        "welcome" => "Welcome"
+    ],
+
+    "fr" => [
+        "welcome" => "Bienvenue"
+    ],
+
+    "es" => [
+        "welcome" => "Bienvenido"
+    ]
+
+];
+
+echo $messages[$lang]["welcome"];
+
+?>
