@@ -677,3 +677,16 @@ $link = sprintf(
 echo $link;
 
 ?>
+<?php
+
+$userId = 1001;
+
+$token = hash(
+    "sha256",
+    $userId . time()
+);
+
+echo "https://example.com/verify.php?"
+   . "id=$userId&token=$token";
+
+?>
