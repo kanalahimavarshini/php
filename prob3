@@ -713,3 +713,36 @@ $messages = [
 echo $messages[$lang]["welcome"];
 
 ?>
+<?php
+
+$request = $_SERVER["REQUEST_URI"];
+
+switch ($request) {
+
+    case "/":
+
+        echo "Home Page";
+
+        break;
+
+    case "/students":
+
+        echo "Student Controller";
+
+        break;
+
+    case "/about":
+
+        echo "About Page";
+
+        break;
+
+    default:
+
+        http_response_code(404);
+
+        echo "404 Not Found";
+
+}
+
+?>
