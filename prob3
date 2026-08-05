@@ -566,3 +566,18 @@ $shortCode = substr(
 echo "Short Code: " . $shortCode;
 
 ?>
+<?php
+
+$id = 5;
+
+$stmt = $pdo->prepare(
+    "UPDATE students
+     SET deleted_at = NOW()
+     WHERE id = ?"
+);
+
+$stmt->execute([$id]);
+
+echo "Soft Deleted";
+
+?>
