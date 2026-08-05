@@ -628,3 +628,36 @@ $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 echo json_encode($data);
 
 ?>
+<?php
+
+$page = $_GET["page"] ?? 1;
+
+$limit = 10;
+
+$offset = ($page - 1) * $limit;
+
+$stmt = $pdo->prepare(
+    "SELECT *
+     FROM students
+     LIMIT ? OFFSET ?"
+);
+
+$stmt->bindValue(
+    1,
+    $limit,
+    PDO::PARAM_INT
+);
+
+$stmt->bindValue(
+    2,
+    $offset,
+    PDO::PARAM_INT
+);
+
+$stmt->execute();
+
+echo json_encode(
+    $stmt->fetchAll(PDO::FETCH_ASSOC)
+);
+
+?>
