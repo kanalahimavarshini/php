@@ -553,3 +553,16 @@ print_r(
 );
 
 ?>
+<?php
+
+$url = "https://www.example.com";
+
+$shortCode = substr(
+    md5($url . time()),
+    0,
+    6
+);
+
+echo "Short Code: " . $shortCode;
+
+?>
