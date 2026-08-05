@@ -609,3 +609,22 @@ auditLog(
 );
 
 ?>
+<?php
+
+$lastId = $_GET["last_id"] ?? 0;
+
+$stmt = $pdo->prepare(
+    "SELECT *
+     FROM students
+     WHERE id > ?
+     ORDER BY id ASC
+     LIMIT 10"
+);
+
+$stmt->execute([$lastId]);
+
+$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+echo json_encode($data);
+
+?>
