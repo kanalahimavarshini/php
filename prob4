@@ -325,3 +325,48 @@ class Computer
 (new Computer())->boot();
 
 ?>
+<?php
+
+class House
+{
+    public string $roof;
+    public string $door;
+}
+
+class HouseBuilder
+{
+    private House $house;
+
+    public function __construct()
+    {
+        $this->house = new House();
+    }
+
+    public function roof(string $roof)
+    {
+        $this->house->roof = $roof;
+
+        return $this;
+    }
+
+    public function door(string $door)
+    {
+        $this->house->door = $door;
+
+        return $this;
+    }
+
+    public function build()
+    {
+        return $this->house;
+    }
+}
+
+$house = (new HouseBuilder())
+    ->roof("Concrete")
+    ->door("Wood")
+    ->build();
+
+print_r($house);
+
+?>
