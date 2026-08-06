@@ -18,3 +18,22 @@ class UserController
 }
 
 ?>
+<?php
+
+class Student
+{
+    public function greet()
+    {
+        return "Hello Student";
+    }
+}
+
+$reflection = new ReflectionClass(Student::class);
+
+echo "Class: " . $reflection->getName() . PHP_EOL;
+
+foreach ($reflection->getMethods() as $method) {
+    echo $method->getName() . PHP_EOL;
+}
+
+?>
