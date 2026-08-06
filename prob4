@@ -151,3 +151,35 @@ $payment = new Payment(new UPIPayment());
 $payment->checkout(500);
 
 ?>
+<?php
+
+interface Command
+{
+    public function execute();
+}
+
+class Light
+{
+    public function on()
+    {
+        echo "Light ON";
+    }
+}
+
+class LightOnCommand implements Command
+{
+    public function __construct(
+        private Light $light
+    ) {}
+
+    public function execute()
+    {
+        $this->light->on();
+    }
+}
+
+$command = new LightOnCommand(new Light());
+
+$command->execute();
+
+?>
