@@ -261,3 +261,37 @@ $coffee = new MilkDecorator(
 echo $coffee->cost();
 
 ?>
+<?php
+
+class OldPrinter
+{
+    public function printText()
+    {
+        return "Printing...";
+    }
+}
+
+interface Printer
+{
+    public function print();
+}
+
+class PrinterAdapter implements Printer
+{
+    public function __construct(
+        private OldPrinter $printer
+    ) {}
+
+    public function print()
+    {
+        return $this->printer->printText();
+    }
+}
+
+$adapter = new PrinterAdapter(
+    new OldPrinter()
+);
+
+echo $adapter->print();
+
+?>
