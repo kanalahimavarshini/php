@@ -370,3 +370,28 @@ $house = (new HouseBuilder())
 print_r($house);
 
 ?>
+<?php
+
+class Student
+{
+    public string $name;
+
+    public function __clone()
+    {
+        echo "Object Cloned\n";
+    }
+}
+
+$student1 = new Student();
+
+$student1->name = "Rahul";
+
+$student2 = clone $student1;
+
+$student2->name = "Anita";
+
+echo $student1->name . PHP_EOL;
+
+echo $student2->name;
+
+?>
