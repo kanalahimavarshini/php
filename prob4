@@ -111,3 +111,43 @@ $subject->attach(new EmailObserver());
 $subject->notify("Order Placed");
 
 ?>
+<?php
+
+interface PaymentStrategy
+{
+    public function pay(float $amount);
+}
+
+class CardPayment implements PaymentStrategy
+{
+    public function pay(float $amount)
+    {
+        echo "Paid ₹$amount using Card";
+    }
+}
+
+class UPIPayment implements PaymentStrategy
+{
+    public function pay(float $amount)
+    {
+        echo "Paid ₹$amount using UPI";
+    }
+}
+
+class Payment
+{
+    public function __construct(
+        private PaymentStrategy $strategy
+    ) {}
+
+    public function checkout(float $amount)
+    {
+        $this->strategy->pay($amount);
+    }
+}
+
+$payment = new Payment(new UPIPayment());
+
+$payment->checkout(500);
+
+?>
