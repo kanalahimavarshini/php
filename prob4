@@ -183,3 +183,47 @@ $command = new LightOnCommand(new Light());
 $command->execute();
 
 ?>
+<?php
+
+abstract class Handler
+{
+    protected ?Handler $next = null;
+
+    public function setNext(Handler $handler)
+    {
+        $this->next = $handler;
+
+        return $handler;
+    }
+
+    abstract public function handle(int $value);
+}
+
+class EvenHandler extends Handler
+{
+    public function handle(int $value)
+    {
+        if ($value % 2 == 0) {
+            echo "Even Number";
+        } elseif ($this->next) {
+            $this->next->handle($value);
+        }
+    }
+}
+
+class OddHandler extends Handler
+{
+    public function handle(int $value)
+    {
+        echo "Odd Number";
+    }
+}
+
+$even = new EvenHandler();
+$odd = new OddHandler();
+
+$even->setNext($odd);
+
+$even->handle(9);
+
+?>
