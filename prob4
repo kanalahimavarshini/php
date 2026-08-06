@@ -227,3 +227,37 @@ $even->setNext($odd);
 $even->handle(9);
 
 ?>
+<?php
+
+interface Coffee
+{
+    public function cost();
+}
+
+class SimpleCoffee implements Coffee
+{
+    public function cost()
+    {
+        return 50;
+    }
+}
+
+class MilkDecorator implements Coffee
+{
+    public function __construct(
+        private Coffee $coffee
+    ) {}
+
+    public function cost()
+    {
+        return $this->coffee->cost() + 20;
+    }
+}
+
+$coffee = new MilkDecorator(
+    new SimpleCoffee()
+);
+
+echo $coffee->cost();
+
+?>
