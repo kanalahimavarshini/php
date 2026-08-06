@@ -37,3 +37,38 @@ foreach ($reflection->getMethods() as $method) {
 }
 
 ?>
+<?php
+
+trait A
+{
+    public function message()
+    {
+        echo "Trait A";
+    }
+}
+
+trait B
+{
+    public function message()
+    {
+        echo "Trait B";
+    }
+}
+
+class Demo
+{
+    use A, B {
+        A::message insteadof B;
+        B::message as messageB;
+    }
+}
+
+$obj = new Demo();
+
+$obj->message();
+
+echo PHP_EOL;
+
+$obj->messageB();
+
+?>
