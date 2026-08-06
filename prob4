@@ -295,3 +295,33 @@ $adapter = new PrinterAdapter(
 echo $adapter->print();
 
 ?>
+<?php
+
+class CPU
+{
+    public function start()
+    {
+        echo "CPU Started\n";
+    }
+}
+
+class RAM
+{
+    public function load()
+    {
+        echo "RAM Loaded\n";
+    }
+}
+
+class Computer
+{
+    public function boot()
+    {
+        (new CPU())->start();
+        (new RAM())->load();
+    }
+}
+
+(new Computer())->boot();
+
+?>
