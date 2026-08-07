@@ -548,3 +548,33 @@ foreach ($arr as $index => $value) {
 }
 
 ?>
+<?php
+
+$arr = [2,5,8,12,16,23,38];
+
+$key = 16;
+
+$low = 0;
+$high = count($arr) - 1;
+
+while ($low <= $high) {
+
+    $mid = intdiv($low + $high, 2);
+
+    if ($arr[$mid] == $key) {
+
+        echo "Found";
+
+        break;
+
+    } elseif ($arr[$mid] < $key) {
+
+        $low = $mid + 1;
+
+    } else {
+
+        $high = $mid - 1;
+    }
+}
+
+?>
