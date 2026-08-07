@@ -578,3 +578,14 @@ while ($low <= $high) {
 }
 
 ?>
+<?php
+
+$stack = [];
+
+array_push($stack, 10);
+array_push($stack, 20);
+array_push($stack, 30);
+
+echo array_pop($stack);
+
+?>
