@@ -464,3 +464,38 @@ for ($i = 1; $i < $n; $i++) {
 print_r($arr);
 
 ?>
+<?php
+
+function mergeSort($arr)
+{
+    if (count($arr) <= 1) {
+        return $arr;
+    }
+
+    $mid = intdiv(count($arr), 2);
+
+    $left = mergeSort(array_slice($arr, 0, $mid));
+    $right = mergeSort(array_slice($arr, $mid));
+
+    return merge($left, $right);
+}
+
+function merge($left, $right)
+{
+    $result = [];
+
+    while ($left && $right) {
+
+        if ($left[0] < $right[0]) {
+            $result[] = array_shift($left);
+        } else {
+            $result[] = array_shift($right);
+        }
+    }
+
+    return array_merge($result, $left, $right);
+}
+
+print_r(mergeSort([5,2,4,7,1,3]));
+
+?>
