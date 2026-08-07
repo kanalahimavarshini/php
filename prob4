@@ -589,3 +589,14 @@ array_push($stack, 30);
 echo array_pop($stack);
 
 ?>
+<?php
+
+$queue = [];
+
+array_push($queue, 10);
+array_push($queue, 20);
+array_push($queue, 30);
+
+echo array_shift($queue);
+
+?>
