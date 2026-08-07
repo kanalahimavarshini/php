@@ -600,3 +600,32 @@ array_push($queue, 30);
 echo array_shift($queue);
 
 ?>
+<?php
+
+class Node
+{
+    public $data;
+    public $next = null;
+
+    public function __construct($data)
+    {
+        $this->data = $data;
+    }
+}
+
+$head = new Node(10);
+
+$head->next = new Node(20);
+
+$head->next->next = new Node(30);
+
+$current = $head;
+
+while ($current) {
+
+    echo $current->data . " ";
+
+    $current = $current->next;
+}
+
+?>
