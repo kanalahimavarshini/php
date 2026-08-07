@@ -531,3 +531,20 @@ function quickSort($arr)
 print_r(quickSort([9,4,7,3,10,5]));
 
 ?>
+<?php
+
+$arr = [12, 25, 18, 9, 40];
+
+$key = 18;
+
+foreach ($arr as $index => $value) {
+
+    if ($value == $key) {
+
+        echo "Found at Index: $index";
+
+        break;
+    }
+}
+
+?>
