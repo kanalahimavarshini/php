@@ -417,3 +417,28 @@ for ($i = 0; $i < $n - 1; $i++) {
 print_r($arr);
 
 ?>
+<?php
+
+$arr = [29, 10, 14, 37, 13];
+
+$n = count($arr);
+
+for ($i = 0; $i < $n - 1; $i++) {
+
+    $min = $i;
+
+    for ($j = $i + 1; $j < $n; $j++) {
+
+        if ($arr[$j] < $arr[$min]) {
+            $min = $j;
+        }
+    }
+
+    $temp = $arr[$i];
+    $arr[$i] = $arr[$min];
+    $arr[$min] = $temp;
+}
+
+print_r($arr);
+
+?>
