@@ -761,3 +761,24 @@ while (!$heap->isEmpty()) {
 }
 
 ?>
+<?php
+
+$graph = [
+    0 => [1, 2],
+    1 => [0, 3],
+    2 => [0, 3],
+    3 => [1, 2]
+];
+
+foreach ($graph as $node => $neighbors) {
+
+    echo "Node $node: ";
+
+    foreach ($neighbors as $neighbor) {
+        echo $neighbor . " ";
+    }
+
+    echo PHP_EOL;
+}
+
+?>
