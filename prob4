@@ -759,3 +759,21 @@ foreach ([50, 30, 70, 20, 40, 60, 80] as $value) {
 echo "BST Created";
 
 ?>
+<?php
+
+function inorder(?TreeNode $root): void
+{
+    if ($root === null) {
+        return;
+    }
+
+    inorder($root->left);
+
+    echo $root->data . " ";
+
+    inorder($root->right);
+}
+
+inorder($root);
+
+?>
