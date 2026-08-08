@@ -659,3 +659,36 @@ function fibonacci($n)
 echo fibonacci(10);
 
 ?>
+<?php
+
+class Node
+{
+    public int $data;
+    public ?Node $prev = null;
+    public ?Node $next = null;
+
+    public function __construct(int $data)
+    {
+        $this->data = $data;
+    }
+}
+
+$head = new Node(10);
+
+$second = new Node(20);
+$third = new Node(30);
+
+$head->next = $second;
+$second->prev = $head;
+
+$second->next = $third;
+$third->prev = $second;
+
+$current = $head;
+
+while ($current !== null) {
+    echo $current->data . " ";
+    $current = $current->next;
+}
+
+?>
