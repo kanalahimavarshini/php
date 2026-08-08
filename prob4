@@ -794,3 +794,20 @@ function preorder(?TreeNode $root): void
 preorder($root);
 
 ?>
+<?php
+
+function postorder(?TreeNode $root): void
+{
+    if ($root === null) {
+        return;
+    }
+
+    postorder($root->left);
+    postorder($root->right);
+
+    echo $root->data . " ";
+}
+
+postorder($root);
+
+?>
