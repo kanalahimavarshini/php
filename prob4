@@ -811,3 +811,58 @@ function postorder(?TreeNode $root): void
 postorder($root);
 
 ?>
+<?php
+
+class LRUCache
+{
+    private int $capacity;
+    private array $cache = [];
+
+    public function __construct(int $capacity)
+    {
+        $this->capacity = $capacity;
+    }
+
+    public function get(int $key): mixed
+    {
+        if (!array_key_exists($key, $this->cache)) {
+            return -1;
+        }
+
+        $value = $this->cache[$key];
+
+        unset($this->cache[$key]);
+
+        $this->cache[$key] = $value;
+
+        return $value;
+    }
+
+    public function put(int $key, mixed $value): void
+    {
+        if (array_key_exists($key, $this->cache)) {
+            unset($this->cache[$key]);
+        }
+
+        $this->cache[$key] = $value;
+
+        if (count($this->cache) > $this->capacity) {
+            $firstKey = array_key_first($this->cache);
+
+            unset($this->cache[$firstKey]);
+        }
+    }
+}
+
+$cache = new LRUCache(2);
+
+$cache->put(1, 100);
+$cache->put(2, 200);
+
+echo $cache->get(1) . PHP_EOL;
+
+$cache->put(3, 300);
+
+echo $cache->get(2);
+
+?>
