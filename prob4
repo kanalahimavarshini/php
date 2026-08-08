@@ -721,3 +721,41 @@ for ($i = 0; $i < 3; $i++) {
 }
 
 ?>
+<?php
+
+class TreeNode
+{
+    public int $data;
+    public ?TreeNode $left = null;
+    public ?TreeNode $right = null;
+
+    public function __construct(int $data)
+    {
+        $this->data = $data;
+    }
+}
+
+function insert(?TreeNode $root, int $value): TreeNode
+{
+    if ($root === null) {
+        return new TreeNode($value);
+    }
+
+    if ($value < $root->data) {
+        $root->left = insert($root->left, $value);
+    } else {
+        $root->right = insert($root->right, $value);
+    }
+
+    return $root;
+}
+
+$root = null;
+
+foreach ([50, 30, 70, 20, 40, 60, 80] as $value) {
+    $root = insert($root, $value);
+}
+
+echo "BST Created";
+
+?>
