@@ -692,3 +692,32 @@ while ($current !== null) {
 }
 
 ?>
+<?php
+
+class Node
+{
+    public int $data;
+    public ?Node $next = null;
+
+    public function __construct(int $data)
+    {
+        $this->data = $data;
+    }
+}
+
+$head = new Node(10);
+$second = new Node(20);
+$third = new Node(30);
+
+$head->next = $second;
+$second->next = $third;
+$third->next = $head;
+
+$current = $head;
+
+for ($i = 0; $i < 3; $i++) {
+    echo $current->data . " ";
+    $current = $current->next;
+}
+
+?>
