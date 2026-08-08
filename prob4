@@ -777,3 +777,20 @@ function inorder(?TreeNode $root): void
 inorder($root);
 
 ?>
+<?php
+
+function preorder(?TreeNode $root): void
+{
+    if ($root === null) {
+        return;
+    }
+
+    echo $root->data . " ";
+
+    preorder($root->left);
+    preorder($root->right);
+}
+
+preorder($root);
+
+?>
