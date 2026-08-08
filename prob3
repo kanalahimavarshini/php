@@ -810,3 +810,33 @@ function dfs(int $node, array &$graph, array &$visited): void
 dfs(0, $graph, $visited);
 
 ?>
+<?php
+
+$graph = [
+    0 => [1, 2],
+    1 => [0, 3],
+    2 => [0, 3],
+    3 => [1, 2]
+];
+
+$queue = [0];
+$visited = [0 => true];
+
+while (!empty($queue)) {
+
+    $node = array_shift($queue);
+
+    echo $node . " ";
+
+    foreach ($graph[$node] as $neighbor) {
+
+        if (!isset($visited[$neighbor])) {
+
+            $visited[$neighbor] = true;
+
+            $queue[] = $neighbor;
+        }
+    }
+}
+
+?>
