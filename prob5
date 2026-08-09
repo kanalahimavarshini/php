@@ -227,3 +227,29 @@ function missingNumber(array $nums): int
 echo missingNumber([3, 0, 1]);
 
 ?>
+<?php
+
+function maxProfit(array $prices): int
+{
+    $minPrice = PHP_INT_MAX;
+    $maxProfit = 0;
+
+    foreach ($prices as $price) {
+
+        $minPrice = min(
+            $minPrice,
+            $price
+        );
+
+        $maxProfit = max(
+            $maxProfit,
+            $price - $minPrice
+        );
+    }
+
+    return $maxProfit;
+}
+
+echo maxProfit([7, 1, 5, 3, 6, 4]);
+
+?>
