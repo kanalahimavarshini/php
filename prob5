@@ -58,3 +58,47 @@ function isValid(string $s): bool
 var_dump(isValid("({[]})"));
 
 ?>
+<?php
+
+class Node
+{
+    public int $data;
+    public ?Node $next = null;
+
+    public function __construct(int $data)
+    {
+        $this->data = $data;
+    }
+}
+
+function reverseList(?Node $head): ?Node
+{
+    $prev = null;
+    $current = $head;
+
+    while ($current !== null) {
+
+        $next = $current->next;
+
+        $current->next = $prev;
+
+        $prev = $current;
+
+        $current = $next;
+    }
+
+    return $prev;
+}
+
+$head = new Node(10);
+$head->next = new Node(20);
+$head->next->next = new Node(30);
+
+$head = reverseList($head);
+
+while ($head !== null) {
+    echo $head->data . " ";
+    $head = $head->next;
+}
+
+?>
