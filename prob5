@@ -211,3 +211,19 @@ rotateArray($nums, 3);
 print_r($nums);
 
 ?>
+<?php
+
+function missingNumber(array $nums): int
+{
+    $n = count($nums);
+
+    $expected = intdiv($n * ($n + 1), 2);
+
+    $actual = array_sum($nums);
+
+    return $expected - $actual;
+}
+
+echo missingNumber([3, 0, 1]);
+
+?>
