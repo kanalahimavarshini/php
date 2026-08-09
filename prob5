@@ -162,3 +162,27 @@ echo maxSubArray(
 );
 
 ?>
+<?php
+
+function majorityElement(array $nums): int
+{
+    $candidate = 0;
+    $count = 0;
+
+    foreach ($nums as $num) {
+
+        if ($count === 0) {
+            $candidate = $num;
+        }
+
+        $count += ($num === $candidate) ? 1 : -1;
+    }
+
+    return $candidate;
+}
+
+echo majorityElement(
+    [2, 2, 1, 1, 1, 2, 2]
+);
+
+?>
