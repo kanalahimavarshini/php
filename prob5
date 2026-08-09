@@ -253,3 +253,28 @@ function maxProfit(array $prices): int
 echo maxProfit([7, 1, 5, 3, 6, 4]);
 
 ?>
+<?php
+
+function climbStairs(int $n): int
+{
+    if ($n <= 2) {
+        return $n;
+    }
+
+    $a = 1;
+    $b = 2;
+
+    for ($i = 3; $i <= $n; $i++) {
+
+        $next = $a + $b;
+
+        $a = $b;
+        $b = $next;
+    }
+
+    return $b;
+}
+
+echo climbStairs(5);
+
+?>
