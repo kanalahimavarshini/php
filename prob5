@@ -21,3 +21,40 @@ function twoSum(array $nums, int $target): array
 print_r(twoSum([2, 7, 11, 15], 9));
 
 ?>
+<?php
+
+function isValid(string $s): bool
+{
+    $stack = [];
+
+    $pairs = [
+        ')' => '(',
+        ']' => '[',
+        '}' => '{'
+    ];
+
+    for ($i = 0; $i < strlen($s); $i++) {
+
+        $char = $s[$i];
+
+        if (in_array($char, ['(', '[', '{'])) {
+
+            $stack[] = $char;
+
+        } else {
+
+            if (
+                empty($stack) ||
+                array_pop($stack) !== $pairs[$char]
+            ) {
+                return false;
+            }
+        }
+    }
+
+    return empty($stack);
+}
+
+var_dump(isValid("({[]})"));
+
+?>
