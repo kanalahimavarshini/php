@@ -134,3 +134,31 @@ $head->next->next->next = $head;
 var_dump(hasCycle($head));
 
 ?>
+<?php
+
+function maxSubArray(array $nums): int
+{
+    $current = $nums[0];
+    $maximum = $nums[0];
+
+    for ($i = 1; $i < count($nums); $i++) {
+
+        $current = max(
+            $nums[$i],
+            $current + $nums[$i]
+        );
+
+        $maximum = max(
+            $maximum,
+            $current
+        );
+    }
+
+    return $maximum;
+}
+
+echo maxSubArray(
+    [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+);
+
+?>
