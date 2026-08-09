@@ -1,0 +1,23 @@
+<?php
+
+function twoSum(array $nums, int $target): array
+{
+    $map = [];
+
+    foreach ($nums as $i => $num) {
+
+        $needed = $target - $num;
+
+        if (isset($map[$needed])) {
+            return [$map[$needed], $i];
+        }
+
+        $map[$num] = $i;
+    }
+
+    return [];
+}
+
+print_r(twoSum([2, 7, 11, 15], 9));
+
+?>
