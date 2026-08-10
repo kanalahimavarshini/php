@@ -634,3 +634,65 @@ solveSudoku($board);
 print_r($board);
 
 ?>
+<?php
+
+class TrieNode
+{
+    public array $children = [];
+    public bool $isEnd = false;
+}
+
+class Trie
+{
+    private TrieNode $root;
+
+    public function __construct()
+    {
+        $this->root = new TrieNode();
+    }
+
+    public function insert(string $word): void
+    {
+        $node = $this->root;
+
+        for ($i = 0; $i < strlen($word); $i++) {
+
+            $char = $word[$i];
+
+            if (!isset($node->children[$char])) {
+                $node->children[$char] = new TrieNode();
+            }
+
+            $node = $node->children[$char];
+        }
+
+        $node->isEnd = true;
+    }
+
+    public function search(string $word): bool
+    {
+        $node = $this->root;
+
+        for ($i = 0; $i < strlen($word); $i++) {
+
+            $char = $word[$i];
+
+            if (!isset($node->children[$char])) {
+                return false;
+            }
+
+            $node = $node->children[$char];
+        }
+
+        return $node->isEnd;
+    }
+}
+
+$trie = new Trie();
+
+$trie->insert("apple");
+
+var_dump($trie->search("apple"));
+var_dump($trie->search("app"));
+
+?>
