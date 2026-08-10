@@ -544,3 +544,93 @@ $result = solveNQueens(4);
 print_r($result);
 
 ?>
+<?php
+
+function solveSudoku(array &$board): bool
+{
+    for ($row = 0; $row < 9; $row++) {
+
+        for ($col = 0; $col < 9; $col++) {
+
+            if ($board[$row][$col] !== ".") {
+                continue;
+            }
+
+            for ($num = 1; $num <= 9; $num++) {
+
+                $value = (string)$num;
+
+                if (isValidSudokuMove(
+                    $board,
+                    $row,
+                    $col,
+                    $value
+                )) {
+
+                    $board[$row][$col] = $value;
+
+                    if (solveSudoku($board)) {
+                        return true;
+                    }
+
+                    $board[$row][$col] = ".";
+                }
+            }
+
+            return false;
+        }
+    }
+
+    return true;
+}
+
+function isValidSudokuMove(
+    array $board,
+    int $row,
+    int $col,
+    string $value
+): bool {
+
+    for ($i = 0; $i < 9; $i++) {
+
+        if (
+            $board[$row][$i] === $value ||
+            $board[$i][$col] === $value
+        ) {
+            return false;
+        }
+    }
+
+    $startRow = intdiv($row, 3) * 3;
+    $startCol = intdiv($col, 3) * 3;
+
+    for ($r = $startRow; $r < $startRow + 3; $r++) {
+
+        for ($c = $startCol; $c < $startCol + 3; $c++) {
+
+            if ($board[$r][$c] === $value) {
+                return false;
+            }
+        }
+    }
+
+    return true;
+}
+
+$board = [
+    ["5","3",".",".","7",".",".",".","."],
+    ["6",".",".","1","9","5",".",".","."],
+    [".","9","8",".",".",".",".","6","."],
+    ["8",".",".",".","6",".",".",".","3"],
+    ["4",".",".","8",".","3",".",".","1"],
+    ["7",".",".",".","2",".",".",".","6"],
+    [".","6",".",".",".",".","2","8","."],
+    [".",".",".","4","1","9",".",".","5"],
+    [".",".",".",".","8",".",".","7","9"]
+];
+
+solveSudoku($board);
+
+print_r($board);
+
+?>
