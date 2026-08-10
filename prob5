@@ -419,3 +419,47 @@ echo lengthOfLIS(
 );
 
 ?>
+<?php
+
+function wordBreak(string $s, array $wordDict): bool
+{
+    $n = strlen($s);
+
+    $dp = array_fill(
+        0,
+        $n + 1,
+        false
+    );
+
+    $dp[0] = true;
+
+    $words = array_flip($wordDict);
+
+    for ($i = 1; $i <= $n; $i++) {
+
+        for ($j = 0; $j < $i; $j++) {
+
+            $word = substr(
+                $s,
+                $j,
+                $i - $j
+            );
+
+            if ($dp[$j] && isset($words[$word])) {
+                $dp[$i] = true;
+                break;
+            }
+        }
+    }
+
+    return $dp[$n];
+}
+
+var_dump(
+    wordBreak(
+        "leetcode",
+        ["leet", "code"]
+    )
+);
+
+?>
