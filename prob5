@@ -350,3 +350,36 @@ function lcs(string $a, string $b): int
 echo lcs("abcde", "ace");
 
 ?>
+<?php
+
+function knapsack(array $weights, array $values, int $capacity): int
+{
+    $n = count($weights);
+
+    $dp = array_fill(
+        0,
+        $capacity + 1,
+        0
+    );
+
+    for ($i = 0; $i < $n; $i++) {
+
+        for ($w = $capacity; $w >= $weights[$i]; $w--) {
+
+            $dp[$w] = max(
+                $dp[$w],
+                $values[$i] + $dp[$w - $weights[$i]]
+            );
+        }
+    }
+
+    return $dp[$capacity];
+}
+
+echo knapsack(
+    [1, 3, 4, 5],
+    [1, 4, 5, 7],
+    7
+);
+
+?>
