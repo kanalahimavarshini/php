@@ -917,3 +917,51 @@ $graph = [
 echo primMST($graph);
 
 ?>
+<?php
+
+function permutations(
+    array $nums,
+    array $current = [],
+    array &$result = []
+): void {
+
+    if (count($current) === count($nums)) {
+        $result[] = $current;
+        return;
+    }
+
+    foreach ($nums as $index => $num) {
+
+        if (in_array($index, array_keys($current))) {
+            continue;
+        }
+
+        $used = [];
+
+        foreach ($current as $value) {
+            $used[] = $value;
+        }
+
+        if (in_array($num, $used)) {
+            continue;
+        }
+
+        $current[] = $num;
+
+        permutations(
+            $nums,
+            $current,
+            $result
+        );
+
+        array_pop($current);
+    }
+}
+
+$result = [];
+
+permutations([1, 2, 3], [], $result);
+
+print_r($result);
+
+?>
