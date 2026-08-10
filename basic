@@ -848,3 +848,72 @@ print_r(
 );
 
 ?>
+<?php
+
+function primMST(array $graph): int
+{
+    $n = count($graph);
+
+    $key = array_fill(
+        0,
+        $n,
+        PHP_INT_MAX
+    );
+
+    $visited = array_fill(
+        0,
+        $n,
+        false
+    );
+
+    $key[0] = 0;
+
+    $total = 0;
+
+    for ($count = 0; $count < $n; $count++) {
+
+        $u = -1;
+        $minimum = PHP_INT_MAX;
+
+        for ($i = 0; $i < $n; $i++) {
+
+            if (
+                !$visited[$i] &&
+                $key[$i] < $minimum
+            ) {
+
+                $minimum = $key[$i];
+                $u = $i;
+            }
+        }
+
+        $visited[$u] = true;
+
+        $total += $key[$u];
+
+        for ($v = 0; $v < $n; $v++) {
+
+            if (
+                $graph[$u][$v] > 0 &&
+                !$visited[$v] &&
+                $graph[$u][$v] < $key[$v]
+            ) {
+
+                $key[$v] = $graph[$u][$v];
+            }
+        }
+    }
+
+    return $total;
+}
+
+$graph = [
+    [0, 2, 3, 0],
+    [2, 0, 1, 4],
+    [3, 1, 0, 5],
+    [0, 4, 5, 0]
+];
+
+echo primMST($graph);
+
+?>
