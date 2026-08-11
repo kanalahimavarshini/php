@@ -91,3 +91,27 @@ echo json_encode([
     "data"=>$users
 ]);
 ?>
+<?php
+$data = "Confidential Data";
+$key = openssl_random_pseudo_bytes(32);
+$iv = openssl_random_pseudo_bytes(16);
+
+$encrypted = openssl_encrypt(
+    $data,
+    "AES-256-CBC",
+    $key,
+    0,
+    $iv
+);
+
+$decrypted = openssl_decrypt(
+    $encrypted,
+    "AES-256-CBC",
+    $key,
+    0,
+    $iv
+);
+
+echo "Encrypted: $encrypted\n";
+echo "Decrypted: $decrypted";
+?>
