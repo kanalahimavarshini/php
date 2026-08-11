@@ -22,3 +22,29 @@ class Database {
 $db = Database::getInstance();
 echo $db->connect();
 ?>
+<?php
+interface Payment {
+    public function pay($amount);
+}
+
+class PayPal implements Payment {
+    public function pay($amount) {
+        echo "Paid ₹$amount using PayPal";
+    }
+}
+
+class Order {
+    private $payment;
+
+    public function __construct(Payment $payment) {
+        $this->payment = $payment;
+    }
+
+    public function checkout($amount) {
+        $this->payment->pay($amount);
+    }
+}
+
+$order = new Order(new PayPal());
+$order->checkout(2500);
+?>
