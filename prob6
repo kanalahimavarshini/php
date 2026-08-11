@@ -66,3 +66,14 @@ $signature = base64UrlEncode(
 $jwt = "$header.$payload.$signature";
 echo $jwt;
 ?>
+<?php
+$password = "MySecure123";
+
+$hash = password_hash($password, PASSWORD_BCRYPT);
+
+echo "Hash: $hash\n";
+
+if(password_verify("MySecure123", $hash)){
+    echo "Password Verified";
+}
+?>
