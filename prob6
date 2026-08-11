@@ -77,3 +77,17 @@ if(password_verify("MySecure123", $hash)){
     echo "Password Verified";
 }
 ?>
+<?php
+header("Content-Type: application/json");
+
+$users = [
+    ["id"=>1,"name"=>"Alice"],
+    ["id"=>2,"name"=>"Bob"],
+    ["id"=>3,"name"=>"Charlie"]
+];
+
+echo json_encode([
+    "status"=>"success",
+    "data"=>$users
+]);
+?>
