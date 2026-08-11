@@ -48,3 +48,21 @@ class Order {
 $order = new Order(new PayPal());
 $order->checkout(2500);
 ?>
+<?php
+function base64UrlEncode($data) {
+    return rtrim(strtr(base64_encode($data), '+/', '-_'), '=');
+}
+
+$header = base64UrlEncode(json_encode(["alg"=>"HS256","typ"=>"JWT"]));
+$payload = base64UrlEncode(json_encode([
+    "user"=>"admin",
+    "exp"=>time()+3600
+]));
+
+$signature = base64UrlEncode(
+    hash_hmac('sha256', "$header.$payload", "secretKey", true)
+);
+
+$jwt = "$header.$payload.$signature";
+echo $jwt;
+?>
